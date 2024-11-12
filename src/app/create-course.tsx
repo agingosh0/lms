@@ -2,27 +2,21 @@
 
 import { useState } from "react";
 
+// Define the type for the course structure
+interface Module {
+    moduleTitle: string;
+    content: string;
+}
+
+interface Course {
+    courseTitle: string;
+    modules: Module[];
+    prerequisite: string;
+    progress: number;
+}
+
 const CourseManagement = () => {
-    const [courses, setCourses] = useState([
-        // {
-        //     courseTitle: "Introduction to React",
-        //     modules: [
-        //         { moduleTitle: "Getting Started", content: "Introduction video link" },
-        //         { moduleTitle: "JSX Basics", content: "PDF guide link" }
-        //     ],
-        //     prerequisite: "Basic JavaScript",
-        //     progress: 30
-        // },
-        // {
-        //     courseTitle: "Advanced JavaScript",
-        //     modules: [
-        //         { moduleTitle: "Closures", content: "Article link" },
-        //         { moduleTitle: "Async/Await", content: "Video tutorial link" }
-        //     ],
-        //     prerequisite: "Intermediate JavaScript",
-        //     progress: 50
-        // }
-    ]);
+    const [courses, setCourses] = useState<Course[]>([]); // Initialize with an empty array of type Course[]
 
     const [courseTitle, setCourseTitle] = useState('');
     const [moduleTitle, setModuleTitle] = useState('');
@@ -30,7 +24,6 @@ const CourseManagement = () => {
     const [prerequisite, setPrerequisite] = useState('');
     const [progress, setProgress] = useState(0);
 
-    // New state for managing uploaded file
     const [file, setFile] = useState<File | null>(null);
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,7 +35,7 @@ const CourseManagement = () => {
     };
 
     const handleAddCourse = () => {
-        const newCourse = {
+        const newCourse: Course = {
             courseTitle,
             modules: [{ moduleTitle, content: file ? URL.createObjectURL(file) : content }],
             prerequisite,
@@ -99,13 +92,6 @@ const CourseManagement = () => {
                         onChange={(e) => setPrerequisite(e.target.value)}
                         className="w-full p-2 border border-gray-300 rounded-md"
                     />
-                    {/* <input
-                        type="number"
-                        placeholder="Progress (%)"
-                        value={progress}
-                        onChange={(e) => setProgress(Number(e.target.value))}
-                        className="w-full p-2 border border-gray-300 rounded-md"
-                    /> */}
                     
                     <button
                         onClick={handleAddCourse}
