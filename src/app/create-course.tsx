@@ -4,24 +4,24 @@ import { useState } from "react";
 
 const CourseManagement = () => {
     const [courses, setCourses] = useState([
-        {
-            courseTitle: "Introduction to React",
-            modules: [
-                { moduleTitle: "Getting Started", content: "Introduction video link" },
-                { moduleTitle: "JSX Basics", content: "PDF guide link" }
-            ],
-            prerequisite: "Basic JavaScript",
-            progress: 30
-        },
-        {
-            courseTitle: "Advanced JavaScript",
-            modules: [
-                { moduleTitle: "Closures", content: "Article link" },
-                { moduleTitle: "Async/Await", content: "Video tutorial link" }
-            ],
-            prerequisite: "Intermediate JavaScript",
-            progress: 50
-        }
+        // {
+        //     courseTitle: "Introduction to React",
+        //     modules: [
+        //         { moduleTitle: "Getting Started", content: "Introduction video link" },
+        //         { moduleTitle: "JSX Basics", content: "PDF guide link" }
+        //     ],
+        //     prerequisite: "Basic JavaScript",
+        //     progress: 30
+        // },
+        // {
+        //     courseTitle: "Advanced JavaScript",
+        //     modules: [
+        //         { moduleTitle: "Closures", content: "Article link" },
+        //         { moduleTitle: "Async/Await", content: "Video tutorial link" }
+        //     ],
+        //     prerequisite: "Intermediate JavaScript",
+        //     progress: 50
+        // }
     ]);
 
     const [courseTitle, setCourseTitle] = useState('');
